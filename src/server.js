@@ -8,7 +8,7 @@ dot.config()
 const init = async () => {
     const server = Hapi.server({
         port: env.port,
-        host: env.host,
+        host: env.NODE_ENV === "production" ? "0.0.0.0":"localhost",
         routes: {
             cors: {
             origin: ["*"],
